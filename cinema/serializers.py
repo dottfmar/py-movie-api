@@ -6,7 +6,7 @@ class MovieSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(required=True)
     description = serializers.CharField(required=False)
-    duration = serializers.CharField(required=False)
+    duration = serializers.IntegerField(required=False)
 
     def create(self, validated_data) -> Movie:
         return Movie.objects.create(**validated_data)

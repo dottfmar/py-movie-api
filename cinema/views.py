@@ -16,7 +16,7 @@ def movie_list(request: Request) -> Response:
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     else:
-        serializer = MovieSerializer(data=request.data, many=True)
+        serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
